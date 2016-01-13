@@ -37,7 +37,9 @@ public abstract class PaymentGateway implements Runnable {
         /* Cancel the current transaction if possible. */
         abstract void cancel();
 
-	/* Check if the parameters given match the required attributes. */
+	/* Check if the parameters given match the required attributes. 
+         * Returns true of the parameters pass, false otherwise.
+         */
 	protected boolean checkParameters() {
 		// compare all required attributes with given parameters.
                 for (Map.Entry<String, Attribute> entry : this.attributeMap.entrySet()) {
@@ -48,7 +50,7 @@ public abstract class PaymentGateway implements Runnable {
                                 return false;
                         }
                 }
-                return false;
+                return true;
 
 	}
 }
