@@ -1,0 +1,1 @@
+/* This class would extend the PaymentGateway class. See AmazonGateway. */
