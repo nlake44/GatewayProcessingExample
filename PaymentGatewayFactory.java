@@ -1,3 +1,4 @@
+/* A factory class for creating new instances of payment gateways. */
 public class PaymentGatewayFactory {
 	public static PaymentGateway createPaymentGateway(GatewayType type) {
 		if (type == GatewayType.Amazon){
