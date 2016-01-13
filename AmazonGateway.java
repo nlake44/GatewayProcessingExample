@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /*
@@ -41,13 +42,11 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 	 */
 	@Override
 	public void initialize(HashMap<String, Object> parameters) throws ParametersNotMetException {
-		boolean requiredParametersNotMet = true;
 		this.parameters = parameters;
 		this.state = GatewayState.READY;
-		// Check to see that all required parameters are met.
-		// ...
 
-		if (requiredParametersNotMet) {
+		// Check to see that all required parameters are met.
+		if (checkParameters()) {
 			throw new ParametersNotMetException();
 		}
 

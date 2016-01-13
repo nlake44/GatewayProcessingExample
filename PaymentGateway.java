@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -35,4 +36,19 @@ public abstract class PaymentGateway implements Runnable {
 
         /* Cancel the current transaction if possible. */
         abstract void cancel();
+
+	/* Check if the parameters given match the required attributes. */
+	protected boolean checkParameters() {
+		// compare all required attributes with given parameters.
+                for (Map.Entry<String, Attribute> entry : this.attributeMap.entrySet()) {
+                        String key = entry.getKey();
+                        Attribute attr = entry.getValue();
+                        Object value = this.parameters.get(key);
+                        if (value == null && attr.getIsRequired()) {
+                                return false;
+                        }
+                }
+                return false;
+
+	}
 }
