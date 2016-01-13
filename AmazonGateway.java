@@ -16,6 +16,9 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 	        this.attributeMap = new HashMap<String, Attribute>();
 		this.attributeMap.put("email", attr1);
 		this.attributeMap.put("age", attr2);
+
+		// Do Amazon API specific initialization here.
+		// ...
 	}
 
 	/* Tries and loads a UUID from the database. */
