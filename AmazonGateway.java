@@ -58,7 +58,7 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 		}
 
 		// Store this instance information in the DB for persistance.
-		// ...
+		updateDB();
 
 		return;
 	}
