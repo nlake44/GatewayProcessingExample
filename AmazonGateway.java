@@ -98,7 +98,7 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 	}
 
 	/* 
-	 * Do tranasctional work here calling out to Amazon services. 
+	 * Do transactional work here calling out to Amazon services. 
 	 * The billing callouts are done here in a thread and will return 
 	 * true on success, and false otherwise. The message class variable
 	 * is set if there was a failure.
