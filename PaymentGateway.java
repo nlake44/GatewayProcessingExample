@@ -46,7 +46,7 @@ public abstract class PaymentGateway implements Runnable {
                         String key = entry.getKey();
                         Attribute attr = entry.getValue();
                         Object value = this.parameters.get(key);
-                        if (value == null && attr.getIsRequired()) {
+                        if (value == null && attr.isRequired()) {
                                 return false;
                         }
                 }

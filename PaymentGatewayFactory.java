@@ -1,6 +1,6 @@
 /* A factory class for creating new instances of payment gateways. */
 public class PaymentGatewayFactory {
-	public static PaymentGateway createPaymentGateway(GatewayType type) {
+	public static PaymentGateway createPaymentGateway(GatewayType type) throws GatewayNotSupportedException {
 		if (type == GatewayType.Amazon){
 			return new AmazonGateway();
 		}
@@ -10,6 +10,6 @@ public class PaymentGatewayFactory {
 		else if (type == GatewayType.PayPal){
 			return new PaypalGateway();
 		}
-		return null;
+		throw new GatewayNotSupportedException();
 	}
 }
