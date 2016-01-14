@@ -19,19 +19,19 @@ public class Attribute {
 
 	/* The methods are simple get/set implementations. */
 	
-	public void setIsRequired(boolean isRequired) {
+	public void setRequired(boolean isRequired) {
 		this.isRequired = isRequired;
 	}
 	
-	public boolean getIsRequired() {
+	public boolean isRequired() {
 		return this.isRequired;
 	}
 
-	public void setIsNumber(boolean isNumber) {
+	public void setNumber(boolean isNumber) {
 		this.isNumber = isNumber;
 	}
 
-	public boolean getIsNumber() {
+	public boolean isNumber() {
 		return this.isNumber;
 	}
 
