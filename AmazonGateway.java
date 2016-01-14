@@ -7,15 +7,19 @@ import java.util.UUID;
  */
 
 public class AmazonGateway extends PaymentGateway implements Runnable {
+	private static class AmazonAttributes {
+		final static Attribute email = new Attribute(true, false, 
+			(short) 50, "Email account"); 
+		final static Attribute age = new Attribute(false, true, 
+			(short) 3, "Age of person");
+		/* and so on ... */
+	}
+
 	public AmazonGateway() {
 		super();
-		Attribute attr1 = new Attribute(true, false, (short) 50, 
-			"Email account");
-		Attribute attr2 = new Attribute(false, true, (short) 3, 
-			"Age of person");
 	        this.attributeMap = new HashMap<String, Attribute>();
-		this.attributeMap.put("email", attr1);
-		this.attributeMap.put("age", attr2);
+		this.attributeMap.put("email", AmazonAttributes.email);
+		this.attributeMap.put("age", AmazonAttributes.age);
 
 		// Do Amazon API specific initialization here.
 		// ...
