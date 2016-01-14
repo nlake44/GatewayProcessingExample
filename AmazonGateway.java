@@ -54,6 +54,8 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 
 		// Check to see that all required parameters are met.
 		if (checkParameters()) {
+			this.state = GatewayState.FAILED;
+			this.message = "Bad parameters";
 			throw new ParametersNotMetException();
 		}
 
