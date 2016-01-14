@@ -80,6 +80,9 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 
 		this.state = GatewayState.RUNNING;
 
+		// Update running status of payment processing in the DB.
+		updateDB();
+
 		isSuccess = runTransaction();
 	 
 		if (isSuccess) {
@@ -88,12 +91,46 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 		}
 		else {
 			this.state = GatewayState.FAILED;
-			this.message = "Payment failed due to...";
 		}
+
+		// Update failed/done status of payment processing in the DB.
+		updateDB();
 	}
 
-	/* Do tranasctional work here calling out to Amazon services. */
+	/* 
+	 * Do tranasctional work here calling out to Amazon services. 
+	 * The billing callouts are done here in a thread and will return 
+	 * true on success, and false otherwise. The message class variable
+	 * is set if there was a failure.
+	 */
 	private boolean runTransaction() {
+		try {
+			// All amazon transactional work goes here.
+			// ...
+		}
+		// first catch all subclasses of Exception first such as any
+		// which are amazon related.
+		// ...
+		// Then capture the high level exception.
+		catch (Exception e) {
+			// Log this exception and if this message is passed 
+			// to the user, make sure it is easily readable.
+			this.message = e.getMessage();
+			return false;
+		}
 		return true;	
+	}
+
+	/*
+	 * We want to store the current payment status in the DB for three
+	 * reasons:
+	 * 1. To have a persistant record of the transaction.
+	 * 2. To be able to recover if hardware or software failure happens.
+	 * 3. Different application servers need to be able to access the 
+	 * 	current status of a transaction.
+	 */
+	private void updateDB(){
+		// Store the current GatewayStatus and parameters in the DB.
+		//...
 	}
 }
