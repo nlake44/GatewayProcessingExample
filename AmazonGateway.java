@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /*
- * An implmentation of a payment gateway for Amazon.
+ * An implementation of a payment gateway for Amazon.
  */
 
 public class AmazonGateway extends PaymentGateway implements Runnable {
@@ -59,7 +59,7 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 			throw new ParametersNotMetException();
 		}
 
-		// Store this instance information in the DB for persistance.
+		// Store this instance information in the DB for persistence.
 		updateDB();
 
 		return;
@@ -127,7 +127,7 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 	/*
 	 * We want to store the current payment status in the DB for three
 	 * reasons:
-	 * 1. To have a persistant record of the transaction.
+	 * 1. To have a persistent record of the transaction.
 	 * 2. To be able to recover if hardware or software failure happens.
 	 * 3. Different application servers need to be able to access the 
 	 * 	current status of a transaction.
