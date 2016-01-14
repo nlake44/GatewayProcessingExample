@@ -105,11 +105,11 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 	 */
 	private boolean runTransaction() {
 		try {
-			// All amazon transactional work goes here.
+			// All Amazon transactional work goes here.
 			// ...
 		}
-		// first catch all subclasses of Exception first such as any
-		// which are amazon related.
+		// Catch all subclasses of Exception first such as any
+		// which are Amazon related.
 		// ...
 		// Then capture the high level exception.
 		catch (Exception e) {
