@@ -115,7 +115,7 @@ public class AmazonGateway extends PaymentGateway implements Runnable {
 		catch (Exception e) {
 			// Log this exception and if this message is passed 
 			// to the user, make sure it is easily readable.
-			// Logger.warning(e.getMessage);
+			// Logger.warning(e.getMessage());
 			this.message = e.getMessage();
 			return false;
 		}
